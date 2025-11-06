@@ -18,10 +18,12 @@ fi
 sed -n ${N}p $SAMPLES | while read SRA TREATMENT REPLICATE
 do
     # read filtering
-    fastp -i input/${SRA}_1.fastq.gz -I input/${SRA}_2.fastq.gz \
+    date
+    time fastp -i input/${SRA}_1.fastq.gz -I input/${SRA}_2.fastq.gz \
         -o trimmed/${SRA}_1.fastq.gz -O trimmed/${SRA}_2.fastq.gz --thread $CPU
-     hisat2  -x yeast -1 trimmed/${SRA}_1.fastq.gz \
+    time hisat2  -x yeast -1 trimmed/${SRA}_1.fastq.gz \
         -2  trimmed/${SRA}_2.fastq.gz \
         -S results/hisat/${SRA}.sam -p $CPU
     samtools sort -O BAM -o results/hisat/${SRA}.bam results/hisat/${SRA}.sam
+    date
 done

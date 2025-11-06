@@ -1,5 +1,5 @@
 #!/usr/bin/bash -l
-#SBATCH -c 16 --mem 16gb --logs logs/kallisto.log
+#SBATCH -c 16 --mem 16gb --out logs/kallisto.log
 
 module load kallisto
 CPU=16

@@ -1,0 +1,2 @@
+sample,group,short_reads_1,short_reads_2,long_reads
+SS_1_D_1,0,input/SRR6963352_1.fastq.gz,input/SRR6963352_2.fastq.gz,
